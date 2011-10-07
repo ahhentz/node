@@ -471,7 +471,7 @@ int ChildProcess::Spawn(const char *file,
       }
 
 	  if (num_custom_gids > 0) {
-        if (setgid(custom_gids[0]) || setgroups(num_custom_gids-1,custom_gids+1)) {
+        if (setgid(custom_gids[0]) || setgroups(num_custom_gids,custom_gids)) {
           perror("setgid()");
           _exit(127);
 		}
